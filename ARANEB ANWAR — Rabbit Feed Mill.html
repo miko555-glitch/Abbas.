@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ARANEB ANWAR — Rabbit Feed Mill</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Cairo:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#FAF8F3;--fg:#282522;--mute:#654632;--panel:#F5F0E6;--line:#C5A77D;--acc:#8A6548;--dk:#4A3025;--gold:#C5A77D;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#282522;--fg:#F5F0E6;--mute:#C5A77D;--panel:#4A3025;--line:#654632;--acc:#C5A77D}}
+:root[data-theme="dark"]{--bg:#282522;--fg:#F5F0E6;--mute:#C5A77D;--panel:#4A3025;--line:#654632;--acc:#C5A77D}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px;height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,"Cairo",sans-serif;overflow-x:hidden}
+[dir=rtl] body{font-family:"Cairo",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3{font-family:Cairo,sans-serif;font-weight:700;line-height:1.3}
+h2{font-size:clamp(2rem,6vw,3.6rem);margin-bottom:.6em}
+section{padding:clamp(56px,10vw,120px) 6vw;max-width:1180px;margin:auto}
+p{max-width:62ch;margin:.5em 0}
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;gap:20px;padding:10px 5vw;padding-top:calc(10px + env(safe-area-inset-top,0px));background:#4A3025ee;backdrop-filter:blur(8px);color:#F5F0E6}
+nav a{color:inherit;text-decoration:none;font-size:.9rem}
+nav .links{display:flex;gap:18px;margin-inline-start:auto}
+nav button,.btn{font:inherit;cursor:pointer}
+#lang,#menu{background:none;border:1px solid #C5A77D;color:#F5F0E6;border-radius:2px;padding:6px 12px;min-height:40px}
+#menu{display:none}
+#bar{position:absolute;inset:auto auto 0 0;height:2px;background:#C5A77D;width:0}
+[dir=rtl] #bar{inset:auto 0 0 auto}
+.logo{display:flex;gap:8px;align-items:center;font-family:Fraunces,serif;letter-spacing:.12em}
+@media(max-width:860px){#menu{display:block;margin-inline-start:auto}nav .links{display:none;position:absolute;inset:100% 0 auto;flex-direction:column;background:#4A3025;padding:12px 5vw 20px;gap:0}nav .links.open{display:flex}nav .links a{padding:14px 0;border-bottom:1px solid #654632}}
+#hero{max-width:none;min-height:100svh;background:#4A3025;color:#F5F0E6;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding-top:120px}
+#hero h1{font-size:clamp(3rem,13vw,9rem);letter-spacing:-.02em}
+[dir=rtl] #hero h1{letter-spacing:0}
+#hero .sub{font-size:clamp(1rem,3vw,1.4rem);color:#C5A77D;margin:.4em 0 1.2em}
+.btn{display:inline-block;padding:14px 22px;min-height:48px;border:1px solid #C5A77D;color:#F5F0E6;background:none;text-decoration:none;margin:0 10px 10px 0;border-radius:2px}
+[dir=rtl] .btn{margin:0 0 10px 10px}
+.btn.f{background:#C5A77D;color:#282522}
+.belt{position:absolute;inset:auto 0 12%;height:10px;border-block:1px solid #8A6548;background:repeating-linear-gradient(90deg,#C5A77D 0 6px,transparent 6px 34px);background-size:68px 100%;animation:belt 2.4s linear infinite;opacity:.55}
+@keyframes belt{to{background-position:68px 0}}
+.rise{animation:rise 1s both}@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.mute{color:var(--mute)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:5vw}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.note{border-inline-start:3px solid var(--gold);padding:4px 14px;font-size:.9rem;color:var(--mute)}
+#bp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4vw;align-items:start}
+@media(max-width:860px){#bp{grid-template-columns:1fr}}
+svg{width:100%;height:auto;display:block;direction:ltr}
+.seg{fill:none;stroke-width:3;stroke-dasharray:2 7;stroke-linecap:round;animation:flow 1.2s linear infinite;transition:opacity .3s}
+@keyframes flow{to{stroke-dashoffset:-9}}
+.st{cursor:pointer;transition:opacity .3s}.st circle{fill:var(--panel);stroke:var(--acc);stroke-width:1.5;transition:.25s}
+.st text{fill:var(--fg);font:600 12px system-ui}.st .l{font:400 8.5px system-ui,Cairo;fill:var(--mute)}
+.st:hover circle,.st:focus circle,.st.on circle{fill:var(--acc);stroke:var(--fg)}.st.on text.n,.st:hover text.n{fill:var(--bg)}
+.st:focus{outline:none}
+.has .st:not(.on){opacity:.35}.has .seg:not(.on){opacity:.15}.seg.on{stroke-width:5}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;margin-top:8px}.legend i{display:inline-block;width:18px;height:3px;margin-inline-end:6px;vertical-align:middle}
+#panel{background:var(--panel);padding:24px;border-top:3px solid var(--acc);min-height:260px}
+#panel h3{font-size:1.8rem;margin:4px 0 8px}
+dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:.92rem}dt{color:var(--mute)}dd{margin:0}
+.nav2{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.nav2 button{background:none;border:1px solid var(--acc);color:var(--fg);padding:10px 14px;min-height:44px;border-radius:2px;cursor:pointer;font:inherit;font-size:.9rem}
+.stage{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:36px 0;border-top:1px solid var(--line);opacity:0;transform:translateY(18px);transition:.7s}
+.stage.in{opacity:1;transform:none}
+.stage .no{font:400 3.5rem/1 Fraunces,serif;color:var(--acc)}
+.stage h3{font-size:1.7rem}.stage dl{max-width:640px}
+@media(max-width:560px){.stage{grid-template-columns:1fr;gap:6px}}
+select,input{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--acc);padding:12px;min-height:48px;width:100%;max-width:420px;border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips button{border:1px solid var(--acc);background:none;color:var(--fg);padding:10px 16px;min-height:44px;border-radius:20px;cursor:pointer;font:inherit}
+.chips button[aria-pressed=true]{background:var(--acc);color:var(--bg)}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:600}
+.ref li{margin:8px 0;font-size:.92rem}
+footer{background:#282522;color:#C5A77D;padding:40px 6vw;font-size:.85rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.stage{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+<nav><a href="#hero" class="logo"><svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true" style="width:26px"><ellipse cx="8" cy="9" rx="3.2" ry="8" fill="#C5A77D"/><ellipse cx="18" cy="9" rx="3.2" ry="8" fill="#C5A77D" transform="rotate(8 18 9)"/><ellipse cx="13" cy="22" rx="8" ry="6.5" fill="#C5A77D"/></svg>ARANEB ANWAR</a>
+<button id="menu" aria-label="Menu" aria-expanded="false">☰</button>
+<div class="links" id="links"><a href="#about" data-t="About|عن المصنع"></a><a href="#flow" data-t="Factory Flow|خريطة المصنع"></a><a href="#journey" data-t="Journey & Machinery|الرحلة والماكينات"></a><a href="#nutrition" data-t="Nutrition|التغذية"></a><a href="#breeds" data-t="Breeds|السلالات"></a><a href="#faq" data-t="FAQ|أسئلة"></a><a href="#refs" data-t="References|المراجع"></a><button id="lang">العربية</button></div><div id="bar"></div></nav>
+
+<section id="hero"><div class="rise"><h1>ARANEB<br>ANWAR</h1>
+<div class="sub" data-t="Rabbit Feed Mill — “From Raw Materials to Balanced Nutrition”|مصنع أعلاف الأرانب — «من المواد الخام إلى التغذية المتوازنة»"></div>
+<p style="color:#E9DFCC" data-t="A conceptual college-project factory. Walk through its production flow, one station at a time.|مصنع تصوري لمشروع جامعي. تجوّل في خط الإنتاج محطة بمحطة."></p>
+<a class="btn f" href="#flow" data-t="Explore the factory|استكشف المصنع"></a><a class="btn" href="#nutrition" data-t="Rabbit nutrition guide|دليل تغذية الأرانب"></a></div><div class="belt"></div></section>
+
+<section id="about"><h2 data-t="A feed mill, explained.|مصنع أعلاف، بالشرح."></h2><div class="cols">
+<div><p data-t="Mission: turn carefully evaluated ingredients into consistent, balanced rabbit feed.|الرسالة: تحويل مكونات مقيَّمة بعناية إلى علف أرانب متوازن وثابت الجودة."></p><p data-t="Vision: a clear, honest picture of how nutrition and manufacturing work together.|الرؤية: صورة واضحة وأمينة لكيفية تكامل التغذية والتصنيع."></p></div>
+<div><p data-t="Objectives: balanced nutrition, raw material evaluation, consistency, quality assurance, efficiency, responsible production.|الأهداف: تغذية متوازنة، تقييم المواد الخام، ثبات التصنيع، ضمان الجودة، كفاءة العمليات، إنتاج مسؤول."></p>
+<p class="note" data-t="Conceptual project. No real capacity, history, certifications or installed equipment are claimed.|مشروع تصوري. لا يُدَّعى أي طاقة إنتاجية أو تاريخ أو شهادات أو معدات فعلية."></p></div></div></section>
+
+<section id="flow"><h2 data-t="Factory flow|مسار المصنع"></h2><p class="mute" data-t="Tap a station. The path through it lights up.|اضغط على محطة لإضاءة مسارها."></p>
+<div id="bp"><div><svg id="svg" viewBox="0 0 400 420" role="group" aria-label="Factory blueprint"></svg>
+<div class="legend"><span><i style="background:#8A6548"></i><b data-t="Raw material|مواد خام" style="font-weight:400"></b></span><span><i style="background:#C5A77D"></i><b data-t="Intermediate feed|علف وسيط" style="font-weight:400"></b></span><span><i style="background:#F5F0E6;outline:1px solid #C5A77D"></i><b data-t="Finished product|منتج نهائي" style="font-weight:400"></b></span></div>
+<p class="note" data-t="Illustrative conceptual layout — not an engineering drawing. Real mills differ in machinery and order.|مخطط تصوري توضيحي — وليس رسمًا هندسيًا. تختلف المصانع الحقيقية في الماكينات وترتيبها."></p></div>
+<div id="panel" aria-live="polite"></div></div></section>
+
+<section id="journey"><h2 data-t="Production journey|رحلة الإنتاج"></h2><div id="stages"></div></section>
+
+<section id="nutrition"><h2 data-t="Rabbit nutrition guide|دليل تغذية الأرانب"></h2>
+<p data-t="Needs follow stage, physiological state and purpose — not breed name alone.|الاحتياجات تتبع المرحلة والحالة الفسيولوجية والغرض، وليس اسم السلالة وحده."></p>
+<label><span data-t="Production stage|مرحلة الإنتاج"></span><br><select id="ns"></select></label><div id="nout" style="margin-top:20px" aria-live="polite"></div>
+<p class="note" data-t="Numeric targets (protein, fiber, energy, calcium…) are left out on purpose until each is tied to a cited source and a stated basis. This guide is educational and builds no feed formula; consult a veterinarian or feed formulator.|القيم الرقمية (بروتين، ألياف، طاقة، كالسيوم…) غير معروضة عمدًا حتى تُربط بمرجع موثق وأساس قياس واضح. الدليل تعليمي ولا يُنتج تركيبة علف؛ استشر طبيبًا بيطريًا أو متخصص تركيبات."></p></section>
+
+<section id="breeds"><h2 data-t="Breed library|مكتبة السلالات"></h2><p class="mute" data-t="A starting selection, not exhaustive. Photos and full profiles can be added with verified sources.|مجموعة مبدئية وليست شاملة. يمكن إضافة الصور والملفات الكاملة بمصادر موثقة."></p><div class="chips" id="bchips"></div><div id="bout" aria-live="polite"></div></section>
+
+<section id="faq"><h2 data-t="Questions|أسئلة شائعة"></h2><input id="fq" type="search" data-p="Search|ابحث"><div id="fl" style="margin-top:16px"></div></section>
+
+<section id="refs"><h2 data-t="References|المراجع"></h2><p class="note" data-t="Verify each entry and add links or DOIs before submission.|راجع كل مرجع وأضف الروابط أو DOI قبل التسليم."></p>
+<ul class="ref"><li><b data-t="Rabbit nutrition|تغذية الأرانب" style="font-weight:600"></b>: de Blas C., Wiseman J. (eds), <i>Nutrition of the Rabbit</i>, 2nd ed., CABI, 2010. · Gidenne T., “Dietary fibres in the nutrition of the growing rabbit…”, <i>Animal</i> 9(2), 2015. · National Research Council, <i>Nutrient Requirements of Rabbits</i>, 1977.</li>
+<li><b data-t="Feeding management & breeds|الإدارة والسلالات" style="font-weight:600"></b>: Lebas F. et al., <i>The Rabbit: Husbandry, Health and Production</i>, FAO, 1997.</li>
+<li><b data-t="Feed manufacturing & pelleting|التصنيع والتحبيب" style="font-weight:600"></b>: McEllhiney R.R., <i>Feed Manufacturing Technology V</i>, AFIA, 2005. · Thomas M., van der Poel A.F.B., “Physical quality of pelleted animal feed 1”, <i>Anim. Feed Sci. Technol.</i> 61, 1996.</li></ul></section>
+<footer>ARANEB ANWAR · <span data-t="Conceptual college project|مشروع جامعي تصوري"></span></footer>
+
+<script>
+const $=s=>document.querySelector(s);let lang=0,cur=null;
+const tr=x=>x.split("|")[lang];
+/* stage: title, description, inputs, outputs, machinery, quality — "en|ar" */
+const S=[
+["Raw Material Receiving|استلام المواد الخام","Trucks unload into intake pits; conveyors and elevators carry ingredients onward. Each lot is identified and documented.|تفرغ الشاحنات في حفر الاستلام وتنقل السيور والرافعات المكونات. تُعرَّف كل دفعة وتُوثَّق.","Trucks, bagged goods|شاحنات وأكياس","Identified lots|دفعات معرّفة","Intake pit, conveyor, bucket elevator|حفرة استلام، سير، رافعة كباشية","Lot ID, paperwork|رقم الدفعة والمستندات"],
+["Sampling & Inspection|أخذ العينات والفحص","Samples are drawn and inspected visually, with moisture testing where applicable, then lots are accepted or rejected.|تؤخذ عينات وتُفحص بصريًا مع اختبار الرطوبة عند الحاجة، ثم تُقبل الدفعة أو تُرفض.","Incoming lots|دفعات واردة","Accepted / rejected lots|دفعات مقبولة / مرفوضة","Sampling probe, moisture meter|مسبار عينات، جهاز رطوبة","Traceable sample records|سجلات عينات قابلة للتتبع"],
+["Raw Material Storage|تخزين المواد الخام","Bulk ingredients suit silos; others go to bins or bagged storage. Moisture, pests and stock rotation (FIFO/FEFO) are managed.|تناسب الصوامع المواد السائبة، وغيرها يُخزَّن في صناديق أو أكياس. تُدار الرطوبة والآفات وتدوير المخزون.","Accepted ingredients|مكونات مقبولة","Stored, traceable stock|مخزون متتبَّع","Silos, bins, bagged store|صوامع، صناديق، مخزن أكياس","Moisture, pest control|الرطوبة ومكافحة الآفات"],
+["Pre-cleaning|التنظيف المسبق","Screens, aspiration and magnets remove foreign material before processing.|تزيل الغرابيل والشفط والمغناطيس الشوائب قبل المعالجة.","Stored ingredients|مكونات مخزنة","Cleaned ingredients|مكونات نظيفة","Screen cleaner, aspirator, magnet|منظف غرابيل، شفاط، مغناطيس","Foreign material removed|إزالة الأجسام الغريبة"],
+["Grinding|الطحن","A hammer mill reduces particle size. Screen choice sets the result; suitable size for rabbit feed depends on the formula.|تقلل مطحنة المطارق حجم الجسيمات. يحدده اختيار الغربال، والحجم المناسب يعتمد على التركيبة.","Cleaned ingredients|مكونات نظيفة","Ground ingredients|مكونات مطحونة","Hammer mill|مطحنة مطارق","Particle size check|فحص حجم الجسيمات"],
+["Batching & Weighing|الجرعات والوزن","Major and minor ingredients are weighed to the formulation.|تُوزن المكونات الرئيسية والدقيقة وفق التركيبة.","Ingredient bins|صناديق المكونات","Weighed batch|دفعة موزونة","Weighing hoppers, batch control|قواديس وزن، تحكم دفعات","Weighing accuracy|دقة الوزن"],
+["Mixing|الخلط","Ingredients are blended into a homogeneous mash. Time depends on mixer and formula.|تُخلط المكونات للحصول على مزيج متجانس. الزمن يعتمد على الخلاط والتركيبة.","Weighed batch|دفعة موزونة","Mash feed|علف مطحون مخلوط","Feed mixer|خلاط علف","Homogeneity, micro-ingredients|التجانس والمكونات الدقيقة"],
+["Conditioning|التكييف","Where applied, steam adds heat and moisture before the pellet mill. Conditions depend on formula and equipment.|عند استخدامه، يضيف البخار حرارة ورطوبة قبل المكبس. تعتمد الظروف على التركيبة والمعدات.","Mash feed|علف مخلوط","Conditioned mash|علف مكيَّف","Conditioner|مكيِّف","Moisture, temperature|الرطوبة والحرارة"],
+["Pelleting|التحبيب","Rollers press mash through a die to form pellets. Quality depends on formula and process settings.|تضغط الأسطوانات العلف عبر القالب لتكوين الحبيبات. تعتمد الجودة على التركيبة وإعدادات التشغيل.","Conditioned mash|علف مكيَّف","Hot pellets|حبيبات ساخنة","Pellet mill (die, rollers)|مكبس حبيبات (قالب وأسطوانات)","Pellet quality|جودة الحبيبات"],
+["Cooling & Screening|التبريد والغربلة","A cooler removes heat and moisture; screens separate fines.|يزيل المبرِّد الحرارة والرطوبة وتفصل الغرابيل الفتات.","Hot pellets|حبيبات ساخنة","Cooled, screened pellets|حبيبات مبردة ومغربلة","Pellet cooler, screen|مبرِّد حبيبات، غربال","Fines, moisture|الفتات والرطوبة"],
+["Finished Feed Storage|تخزين المنتج النهائي","Finished feed is held in identified bins, protected from moisture and contamination.|يُحفظ العلف في صناديق معرّفة ومحميًا من الرطوبة والتلوث.","Cooled pellets|حبيبات مبردة","Stored finished feed|علف نهائي مخزن","Finished feed bins|صناديق منتج نهائي","Product ID, lot tracking|هوية المنتج وتتبع الدفعة"],
+["Packaging|التعبئة","Feed is bagged, weighed and labeled.|يُعبأ العلف ويوزن ويوسَم.","Finished feed|علف نهائي","Labeled bags|أكياس موسومة","Bagging and weighing unit|وحدة تعبئة ووزن","Weight, labeling|الوزن والبطاقة"],
+["Dispatch|الشحن","Product is loaded and shipped with documentation that keeps it traceable.|يُحمَّل المنتج ويُشحن بمستندات تحفظ إمكانية التتبع.","Packed feed|علف معبأ","Delivered product|منتج مسلَّم","Loading area|منطقة تحميل","Documentation, traceability|المستندات والتتبع"]];
+const lab=["Input|المدخلات","Output|المخرجات","Machinery|الماكينات","Quality checks|فحوص الجودة"];
+const dl=s=>`<dl><dt>${tr(lab[0])}</dt><dd>${tr(s[2])}</dd><dt>${tr(lab[1])}</dt><dd>${tr(s[3])}</dd><dt>${tr(lab[2])}</dt><dd>${tr(s[4])}</dd><dt>${tr(lab[3])}</dt><dd>${tr(s[5])}</dd></dl>`;
+const X=[50,150,250,350],P=i=>{const r=i>>2,c=i%4;return[r%2?X[3-c]:X[c],50+r*100]};
+const col=i=>i<3?"#8A6548":i<9?"#C5A77D":"#F5F0E6";
+function wrap(t){const w=t.split(" ");if(w.length<2)return[t];const m=Math.ceil(w.length/2);return[w.slice(0,m).join(" "),w.slice(m).join(" ")]}
+function drawSvg(){let h="";for(let i=0;i<12;i++){const a=P(i),b=P(i+1);h+=`<line class="seg${cur!==null&&(i==cur||i==cur-1)?" on":""}" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${col(i)}"/>`}
+S.forEach((s,i)=>{const[x,y]=P(i),t=wrap(tr(s[0]));h+=`<g class="st${cur===i?" on":""}" tabindex="0" role="button" aria-label="${i+1}. ${tr(s[0])}" data-i="${i}"><title>${tr(s[0])}</title><circle cx="${x}" cy="${y}" r="${cur===i?25:21}"/><text class="n" x="${x}" y="${y+4}" text-anchor="middle">${i+1}</text>${t.map((l,k)=>`<text class="l" x="${x}" y="${y+36+k*10}" text-anchor="middle">${l}</text>`).join("")}</g>`});
+$("#svg").innerHTML=h;$("#svg").classList.toggle("has",cur!==null);}
+function panel(){const p=$("#panel");if(cur===null){p.innerHTML=`<h3>${tr("Select a station|اختر محطة")}</h3><p class="mute">${tr("Stage details, inputs, outputs, machinery and quality checks appear here.|تظهر هنا التفاصيل والمدخلات والمخرجات والماكينات وفحوص الجودة.")}</p>`;return}
+const s=S[cur];p.innerHTML=`<span class="mute">${tr("Stage|المرحلة")} ${cur+1} / 13</span><h3>${tr(s[0])}</h3><p>${tr(s[1])}</p>${dl(s)}<p class="mute" style="font-size:.85rem">${cur?"← "+tr(S[cur-1][0]):""}${cur&&cur<12?" · ":""}${cur<12?tr(S[cur+1][0])+" →":""}</p><div class="nav2"><button data-a="p" ${cur?"":"disabled"}>${tr("Previous|السابق")}</button><button data-a="n" ${cur<12?"":"disabled"}>${tr("Next|التالي")}</button><button data-a="e">${tr("Explore this stage|استكشف المرحلة")}</button><button data-a="c">${tr("Full blueprint|المخطط كاملًا")}</button></div>`}
+function pick(i){cur=i;drawSvg();panel()}
+$("#svg").addEventListener("click",e=>{const g=e.target.closest(".st");if(g)pick(+g.dataset.i)});
+$("#svg").addEventListener("keydown",e=>{if(e.key=="Enter"||e.key==" "){const g=e.target.closest(".st");if(g){e.preventDefault();pick(+g.dataset.i);g.focus?.()}}});
+$("#panel").addEventListener("click",e=>{const a=e.target.dataset.a;if(!a)return;if(a=="p")pick(cur-1);if(a=="n")pick(cur+1);if(a=="c")pick(null);if(a=="e")document.getElementById("st"+cur).scrollIntoView()});
+/* journey */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+function journey(){$("#stages").innerHTML=S.map((s,i)=>`<article class="stage" id="st${i}"><div class="no">${String(i+1).padStart(2,"0")}</div><div><h3>${tr(s[0])}</h3><p>${tr(s[1])}</p>${dl(s)}</div></article>`).join("");document.querySelectorAll(".stage").forEach(e=>io.observe(e))}
+/* nutrition: qualitative only */
+const N=[
+["Weaning & transition|الفطام والانتقال","Move young rabbits onto solid feed without digestive upset.|نقل الصغار إلى العلف الصلب دون اضطراب هضمي.","Change feed gradually; keep fresh water always available.|غيّر العلف تدريجيًا وأتح الماء النظيف دائمًا.","Abrupt feed changes are a common stress point.|التغيير المفاجئ للعلف مصدر شائع للإجهاد."],
+["Growing|النمو","Support steady growth with adequate nutrients and gut-supporting fiber.|دعم نمو منتظم بعناصر كافية وألياف تحمي الجهاز الهضمي.","Offer consistent feed of appropriate quality; watch intake and condition.|قدّم علفًا ثابتًا بجودة مناسبة وراقب الاستهلاك والحالة.","Requirements vary with system, genetics and age.|تختلف الاحتياجات حسب النظام والسلالة والعمر."],
+["Finishing|التسمين","Reach market condition with steady intake.|بلوغ حالة التسويق مع استهلاك منتظم.","Keep feed and water access constant.|حافظ على ثبات الوصول للعلف والماء.","Avoid sudden diet changes late in growth.|تجنب تغيير العليقة فجأة في المراحل المتأخرة."],
+["Adult maintenance|الصيانة للبالغين","Maintain healthy body condition.|الحفاظ على حالة جسم صحية.","Match amount to condition; keep fiber central.|اضبط الكمية حسب الحالة وأبقِ الألياف أساسية.","Overfeeding can lead to excess fat.|الإفراط في التغذية قد يسبب سمنة."],
+["Gestation|الحمل","Support the doe and developing litter without excess fat.|دعم الأم والأجنة دون زيادة دهون.","Monitor body condition through gestation.|راقب حالة الجسم طوال الحمل.","Needs rise as pregnancy advances; do not assume one ration fits all.|تزيد الاحتياجات مع تقدم الحمل."],
+["Lactation|الرضاعة","Meet the high demand of milk production.|تلبية الاحتياج المرتفع لإنتاج اللبن.","Ensure strong feed intake and plenty of fresh water.|تأكد من استهلاك جيد للعلف ووفرة الماء.","Demand is high and varies with litter size.|الاحتياج مرتفع ويختلف مع حجم البطن."],
+["Breeding bucks|ذكور التربية","Keep bucks fit and in good condition.|إبقاء الذكور بلياقة وحالة جيدة.","Avoid both underfeeding and over-conditioning.|تجنب نقص التغذية والسمنة.","Reference data is limited; seek professional advice.|المراجع محدودة؛ استشر مختصًا."]];
+function nut(){const sel=$("#ns"),v=sel.value||0;sel.innerHTML=N.map((n,i)=>`<option value="${i}">${tr(n[0])}</option>`).join("");sel.value=v;const n=N[v];
+$("#nout").innerHTML=`<h3>${tr(n[0])}</h3><dl><dt>${tr("Objective|الهدف")}</dt><dd>${tr(n[1])}</dd><dt>${tr("Management|الإدارة")}</dt><dd>${tr(n[2])}</dd><dt>${tr("Caution|تنبيه")}</dt><dd>${tr(n[3])}</dd></dl>`}
+$("#ns").onchange=nut;
+/* breeds */
+const B=[["New Zealand White|نيوزيلندي أبيض","Meat and research rabbit.|أرنب لحم وأبحاث."],["Californian|كاليفورني","Widely kept for meat.|يُربى كثيرًا للحم."],["Flemish Giant|عملاق فلمنكي","Large breed; meat and companion.|سلالة كبيرة؛ لحم وتربية منزلية."],["Rex|ريكس","Valued for plush fur.|تُقدَّر لفرائها الكثيف."],["Satin|ساتان","Known for glossy fur.|معروفة بفرائها اللامع."],["Angora|أنجورا","Kept for wool.|تُربى للصوف."],["Champagne d’Argent|شامبان دارجنت","Meat and fur.|لحم وفراء."],["Holland Lop|هولاند لوب","Companion and show rabbit.|أرنب زينة وعروض."],["Dutch|هولندي","Companion and show rabbit.|أرنب زينة وعروض."]];
+let bi=0;
+function breeds(){$("#bchips").innerHTML=B.map((b,i)=>`<button aria-pressed="${i==bi}" data-i="${i}">${tr(b[0])}</button>`).join("");const b=B[bi];$("#bout").innerHTML=`<h3>${tr(b[0])}</h3><p>${tr(b[1])}</p><p class="note">${tr("Feed follows stage and condition more than breed name; weights and origin to be added from cited sources.|العلف يتبع المرحلة والحالة أكثر من اسم السلالة؛ تُضاف الأوزان والمنشأ من مصادر موثقة.")}</p>`}
+$("#bchips").onclick=e=>{const i=e.target.dataset.i;if(i!=null){bi=+i;breeds()}};
+/* faq */
+const F=[["What is conditioning?|ما هو التكييف؟","Treating mash with steam (where used) before pelleting to add heat and moisture.|معالجة العلف المطحون بالبخار (عند استخدامه) قبل التحبيب لإضافة حرارة ورطوبة."],["Why are ingredients ground?|لماذا تُطحن المكونات؟","To reach a particle size that mixes and pellets well.|للوصول إلى حجم جسيمات يخلط ويتحبب جيدًا."],["Why is mixing important?|لماذا الخلط مهم؟","So every portion of feed carries the same blend of ingredients.|ليحمل كل جزء من العلف نفس خليط المكونات."],["Why are pellets cooled?|لماذا تُبرَّد الحبيبات؟","To remove heat and moisture so pellets harden and store well.|لإزالة الحرارة والرطوبة فتتماسك الحبيبات وتُخزن جيدًا."],["Nutrient targets vs a feed formula?|الاحتياجات الغذائية مقابل تركيبة العلف؟","Targets say what rabbits need; a formula says which ingredients meet them.|الاحتياجات تحدد ما تحتاجه الأرانب، والتركيبة تحدد المكونات التي تلبيها."],["Does every breed need its own feed?|هل لكل سلالة علف خاص؟","Not necessarily; stage, state and purpose matter most.|ليس بالضرورة؛ المرحلة والحالة والغرض هي الأهم."],["Why is fiber important?|لماذا الألياف مهمة؟","It supports healthy digestion in rabbits.|تدعم الهضم السليم عند الأرانب."]];
+function faq(){const q=$("#fq").value.toLowerCase();$("#fl").innerHTML=F.filter(f=>(f[0]+f[1]).toLowerCase().includes(q)).map(f=>`<details><summary>${tr(f[0])}</summary><p>${tr(f[1])}</p></details>`).join("")||`<p class="mute">${tr("No matches|لا نتائج")}</p>`}
+$("#fq").oninput=faq;
+/* language + chrome */
+function apply(){document.documentElement.lang=lang?"ar":"en";document.documentElement.dir=lang?"rtl":"ltr";document.querySelectorAll("[data-t]").forEach(e=>e.textContent=tr(e.dataset.t));document.querySelectorAll("[data-p]").forEach(e=>e.placeholder=tr(e.dataset.p));$("#lang").textContent=lang?"English":"العربية";drawSvg();panel();journey();nut();breeds();faq()}
+$("#lang").onclick=()=>{lang^=1;apply()};
+$("#menu").onclick=()=>{const o=$("#links").classList.toggle("open");$("#menu").setAttribute("aria-expanded",o)};
+$("#links").onclick=e=>{if(e.target.tagName=="A")$("#links").classList.remove("open")};
+addEventListener("scroll",()=>{const d=document.documentElement;$("#bar").style.width=(scrollY/(d.scrollHeight-innerHeight)*100)+"%"},{passive:true});
+apply();
+</script>
+</body>
+</html>
